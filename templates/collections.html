@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Collections</title>
+    </head>
+    <body>
+        <h1>The newest posts</h1>
+        <ul>
+            <table> 
+                <tr>
+                    <th>post_example</th>
+                </tr>
+                {% for post_example in dictionary.items() %}
+                <tr>
+                    <td>{{ title }}</td>
+                </tr>
+                <tr>
+                    <td>{{ description }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </ul>
+    </body>
+</html>

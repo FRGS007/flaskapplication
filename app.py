@@ -4,13 +4,14 @@ app = Flask(__name__)
 
 
 @app.route('/')
-def helloLog():
+def hello_log():
     log = False
-    return render_template('hello.html', log=log)
+    return render_template('index.html', log=log)
 
-def helloReg():
+
+def hello_reg():
     reg = False
-    return render_template('hello.html', reg=reg)
+    return render_template('index.html', reg=reg)
 
 
 @app.route('/signin', methods=['POST', 'GET'])
@@ -26,12 +27,24 @@ def logging():
 @app.route('/signup', methods=['POST', 'GET'])
 def register():
     if request.method == 'POST':
-        firstName = request.form['firstName']
-        lastName = request.form['lastName']
+        first_name = request.form['firstName']
+        last_name = request.form['lastName']
         email = request.form['email']
         password = request.form['password']
-        return "<p>Registration successful</p>" #nie dziala
+        return "<p>Registration successful</p>"  # do poprawy
     return render_template('register.html')
+
+
+@app.route('/post/<int:pid>/<title>')  # pid - post id
+def post(pid, title):
+    return render_template('post.html', post_id=pid, title=title)
+
+
+@app.route('/collections')
+def posts_collection():
+    list = ['x', 'y', 'z']
+    dictionary = {'name': 'xyz', 'lastName': 'zyx'}
+    return render_template('collections.html', list=list, dictionary=dictionary)
 
 
 if __name__ == '__main__':
