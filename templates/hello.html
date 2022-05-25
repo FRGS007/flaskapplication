@@ -10,5 +10,11 @@
     {% else %}
         <a href="/signin">Sign in</a>
     {% endif %}
+
+    {% if reg %}
+        <p>Welcome, </p>
+    {% else %}
+        <a href="/signup">Sign up</a>
+    {% endif %}
     </body>
 </html>
